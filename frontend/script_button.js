@@ -22,5 +22,9 @@ const dayComponent = function (dayCount) {
 console.log("hello");
 const rootElement = document.querySelector("#root");
 
-rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "January", 31));
-rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "February", 28));
+rootElement.insertAdjacentHTML("beforeend", "<button>show calendar</button>");
+const buttonElement = rootElement.querySelector("button");
+buttonElement.addEventListener("click", function(){
+    rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "January", 31));
+    rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "February", 28));
+})
