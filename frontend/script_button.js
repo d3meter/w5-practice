@@ -83,7 +83,7 @@ const monthComponent = function (nth, name, days) {
     return `
         <section id="${nth}" class="${name}">    
             <h2>${name}</h2>
-            ${daysHTML}
+            <div class = "days">${daysHTML}</div>
            </section>
     `
 }
@@ -95,24 +95,32 @@ const dayComponent = function (dayCount) {
 }
 
 console.log("hello");
+const rootElement = document.querySelector("#root");
 /* console.log(year[0].days); */
 
-const rootElement = document.querySelector("#root");
-rootElement.insertAdjacentHTML("beforeend", "<button>show calendar</button>");
-
+rootElement.insertAdjacentHTML("beforeend", "<button>Add month</button>");
 const buttonElement = rootElement.querySelector("button");
 
-let monthIndex = 0;
+/* let monthIndex = 0; */
 
-buttonElement.addEventListener("click", function(){
-    if (monthIndex<12){
+buttonElement.addEventListener("click", function() {
+/*     if (monthIndex<12){
         rootElement.insertAdjacentHTML("beforeend", monthComponent(year[monthIndex].nth, year[monthIndex].month, year[monthIndex].days));
         console.log(year[monthIndex]);
         monthIndex++;
     } else {
         buttonElement.setAttribute("disabled","");
+    } */
+
+    for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
+        rootElement.insertAdjacentHTML("beforeend", monthComponent(
+            year[monthIndex].nth,
+            year[monthIndex].month,
+            year[monthIndex].days
+            )
+        );
     }
-})
+});
 
 /*     rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "January", 31));
     rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "February", 28)); */

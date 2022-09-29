@@ -1,9 +1,46 @@
 #root {
-  color: blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
 }
-#root .January {
-  color: green;
+#root section {
+  width: 100%;
+  max-width: 400px;
+  min-width: 280px;
 }
-#root .January .day {
-  color: aqua;
+#root section .days {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+  align-items: flex-start;
+}
+#root section .days .day {
+  width: 10%;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+#root button {
+  width: 120px;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .day {
+    color: red;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .day {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
