@@ -84,6 +84,8 @@ const monthComponent = function (nth, name, days) {
         <section id="${nth}" class="${name}">    
             <h2>${name}</h2>
             <div class = "days">${daysHTML}</div>
+            <div class="selected-day"></div>
+        
            </section>
     `
 }
@@ -116,11 +118,31 @@ buttonElement.addEventListener("click", function() {
         rootElement.insertAdjacentHTML("beforeend", monthComponent(
             year[monthIndex].nth,
             year[monthIndex].month,
-            year[monthIndex].days
-            )
-        );
+            year[monthIndex].days));
+        }
+        initJanuaryEvents();
+    })
+
+const hideDays = function (days) {
+    for(let day of days) {
+        day.classList.add("hidden");
     }
-});
+}
+
+const showDayInfo = function (dayIndex) {
+    let selectedDay = document.querySelector(".January .selected-day");
+    selectedDay.textContent = `January ${dayIndex}`
+}
+    
+const initJanuaryEvents = function () {
+    let days = document.querySelectorAll(".January .days .day");
+    for(let day of days) {
+        day.addEventListener("click", function () {
+            hideDays(days);
+            showDayInfo(day.textContent);
+        })
+    }
+}
 
 /*     rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "January", 31));
     rootElement.insertAdjacentHTML("beforeend", monthComponent(1, "February", 28)); */
