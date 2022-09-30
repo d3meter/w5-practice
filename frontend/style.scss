@@ -25,6 +25,7 @@
                 box-sizing: border-box;
                 margin-bottom: 10px;
                 padding: 5px 0;
+                transition: all 0.5s ease;
             }
         }
     }
@@ -52,4 +53,9 @@
 
 .hidden {
     display: none !important;
+}
+
+.clicked {
+    transform: rotate(180deg);
+    transition: all 0.5s ease;
 }
